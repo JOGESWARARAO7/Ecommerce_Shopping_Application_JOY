@@ -1,0 +1,88 @@
+<app-adminheadder></app-adminheadder>
+
+<!-- product-details.component.html -->
+<div class="container mt-4">
+  <div class="card p-4 shadow-sm">
+    <h3 class="text-center mb-4">Add Product</h3>
+    
+    <span class="bg-danger text-white">{{errormessage}}</span>
+
+    <form (submit)="addproduct($event)">
+      <!-- Product Images -->
+      <div class="mb-4">
+        <label class="form-label"><i class="bi bi-images"></i> Product Images</label>
+        <div class="d-flex justify-content-between">
+          <div class="text-center">
+            <label class="form-label">Front View</label>
+            <input type="file" class="form-control" #frontInput (change)="onFileSelected(frontInput.files, 'front')" />
+          </div>
+          <div class="text-center">
+            <label class="form-label">Right View</label>
+            <input type="file" class="form-control" #rightInput (change)="onFileSelected(rightInput.files, 'right')" />
+          </div>
+          <div class="text-center">
+            <label class="form-label">Left View</label>
+            <input type="file" class="form-control" #leftInput (change)="onFileSelected(leftInput.files, 'left')" />
+          </div>
+          <div class="text-center">
+            <label class="form-label">Back View</label>
+            <input type="file" class="form-control" #backInput (change)="onFileSelected(backInput.files, 'back')" />
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- Product Details Row 1 -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label"><i class="bi bi-basket"></i> Product Name</label>
+          <select class="form-control" [(ngModel)]="product.productname" name="productname" required>
+            <option value="">All</option>
+            <option *ngFor="let type of productTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label"><i class="bi bi-shop"></i> Brand</label>
+          <select class="form-control" [(ngModel)]="product.brand" name="brand" required>
+            <option value="">All</option>
+            <option *ngFor="let type of productBrand" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Details Row 2 -->
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label class="form-label"><i class="bi bi-palette"></i> Color</label>
+          <select class="form-control" [(ngModel)]="product.productcolor" name="productcolor" required>
+            <option value="">All</option>
+            <option *ngFor="let type of productcolor" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label"><i class="bi bi-gender-ambiguous"></i> Gender</label>
+          <select class="form-select" [(ngModel)]="product.gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Unisex">Unisex</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label"><i class="bi bi-currency-dollar"></i> Price</label>
+          <input type="number" class="form-control" [(ngModel)]="product.price" name="price" required />
+        </div>
+      </div>
+
+      <!-- Available Quantity -->
+      <div class="mb-3">
+        <label class="form-label"><i class="bi bi-box-seam"></i> Available Quantity</label>
+        <input type="number" class="form-control" [(ngModel)]="product.available" name="available" required />
+      </div>
+
+      <!-- Add Product Button -->
+      <button type="submit" class="btn btn-primary w-100 mt-3">
+        <i class="bi bi-cart-plus"></i> Add Product
+      </button>
+    </form>
+  </div>
+</div>

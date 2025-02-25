@@ -1,0 +1,68 @@
+<!-- Backdrop -->
+<div class="filter-backdrop" (click)="closeFilterPopup()"></div>
+
+<!-- Filter Popup -->
+<div class="filter-popup">
+  <div class="filter-content">
+
+    <!-- Product Type -->
+    <div class="mb-3">
+      <label for="productType">Product Type:</label>
+      <select id="productType" class="form-control" [(ngModel)]="selectedFilters.productName">
+        <option value="">All</option>
+        <option *ngFor="let type of productTypes" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+
+    <!-- Product Brand -->
+    <div class="mb-3">
+      <label for="brandnames">Brand Name:</label>
+      <select id="brandnames" class="form-control" [(ngModel)]="selectedFilters.brandName">
+        <option value="">All</option>
+        <option *ngFor="let type of brandnames" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+
+    <!-- Price -->
+    <div class="mb-3">
+      <label for="priceRange">Price Range:</label>
+      <select id="priceRange" class="form-control" [(ngModel)]="selectedFilters.price">
+        <option value="">All</option>
+        <option *ngFor="let price of priceOptions" [value]="price">₹{{ price }}</option>
+      </select>
+    </div>
+
+    <!-- Gender -->
+    <div class="mb-3">
+      <label for="gender">Gender:</label>
+      <select id="gender" class="form-control" [(ngModel)]="selectedFilters.gender">
+        <option value="">All</option>
+        <option *ngFor="let gender of genderOptions" [value]="gender">{{ gender }}</option>
+      </select>
+    </div>
+
+    <!-- Color -->
+    <div class="mb-3">
+      <label for="color">Color:</label>
+      <select id="color" class="form-control" [(ngModel)]="selectedFilters.color">
+        <option value="">All</option>
+        <option *ngFor="let color of colorOptions" [value]="color">{{ color }}</option>
+      </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row mt-3">
+      <div class="col-6">
+        <button class="btn btn-success w-100 d-flex align-items-center justify-content-center" (click)="applyFilterSelection()">
+          <i class="fas fa-check-circle me-2"></i> Apply
+        </button>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-danger w-100 d-flex align-items-center justify-content-center" (click)="closeFilterPopup()">
+          <i class="fas fa-times-circle me-2"></i> Cancel
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

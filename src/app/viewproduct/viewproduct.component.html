@@ -1,0 +1,49 @@
+<app-userheadder></app-userheadder>
+<div class="container mt-4">
+
+    <div class="alert alert-primary" role="alert">
+        {{errormessage}}
+      </div>
+      
+
+    <div class="row">
+        <!-- Left Side: Thumbnails -->
+        <div class="col-md-2 col-3 d-flex flex-column align-items-center">
+            <div *ngFor="let img of images; let i = index"
+                 class="thumbnail-container mb-2"
+                 [class.active]="i === selectedImageIndex"
+                 (click)="changeImage(i)">
+                <img [src]="'data:image/jpeg;base64,' + img" class="thumbnail">
+            </div>
+        </div>
+
+        <!-- Main Image -->
+        <div class="col-md-6 col-9 text-center">
+            <div class="main-image-container">
+                <img [src]="'data:image/jpeg;base64,' + selectedImage" class="main-image">
+            </div>
+        </div>
+
+        <!-- Right Side: Product Details -->
+        <div class="col-md-4 col-12 mt-3 mt-md-0 product-details">
+            <h2 class="brand">{{ productdto.brand }}</h2>
+            <p class="price">Price: <span>₹{{ productdto.price }}</span></p>
+            <p class="product-info">Color: <span>{{ productdto.productcolor }}</span></p>
+            <p class="product-info">Gender: <span>{{ productdto.gender }}</span></p>
+            <p class="availability">
+                Availability:
+                    {{ productdto.avalible }}
+            </p>
+
+            <!-- Wishlist & Add to Cart Buttons -->
+            <div class="actions mt-3">
+                <button class="btn btn-outline-danger me-2" 
+                (click)="productdto.productid ? toggleWishlist(productdto.productid) : null">
+            <i class="bi" [class.bi-heart-fill]="isWishlisted" [class.bi-heart]="!isWishlisted"></i>
+        </button>
+        
+                <button class="btn btn-primary" (click)="productdto.productid ? addtobag(productdto.productid) : null">🛒 Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

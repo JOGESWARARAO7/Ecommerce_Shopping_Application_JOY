@@ -1,0 +1,22 @@
+.otp-card {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.input-group-text {
+  background-color: #f8f9fa;
+  border-right: none;
+}
+
+input {
+  text-align: center;
+}
+
+.btn {
+  font-size: 18px;
+}
+
+.text-danger {
+  font-size: 18px;
+}

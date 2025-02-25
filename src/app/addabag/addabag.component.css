@@ -1,0 +1,70 @@
+/* General card styling */
+.product-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* Product Image */
+.product-img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* Product Title */
+.product-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Product Price */
+.product-price {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Quantity Controls */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.quantity-value {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Floating Checkout Button */
+.checkout-btn-container {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.checkout-btn:hover {
+  background-color: #218838;
+}

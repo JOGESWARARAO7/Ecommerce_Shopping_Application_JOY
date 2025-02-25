@@ -1,0 +1,45 @@
+<nav class="navbar">
+    <!-- Left: Filter Button -->
+    <button class="filter-btn" (click)="openFilterPopup()">
+      <i class="fa fa-filter"></i>
+    </button>
+  
+    <!-- Center: Navigation Buttons -->
+    <div class="nav-links">
+      <button class="nav-btn" routerLink="/userhomepage" [routerLinkActive]="'active'">
+        <i class="fa fa-home"></i> Home
+      </button>
+      <button class="nav-btn" routerLink="/whishlist" [routerLinkActive]="'active'">
+        <i class="fa fa-heart"></i> Wishlist
+      </button>
+      <button class="nav-btn" routerLink="/addbag" [routerLinkActive]="'active'">
+        <i class="fa fa-shopping-bag"></i> Add Bag
+      </button>
+    </div>
+    
+  
+    <!-- Right: Profile Section -->
+    <div class="profile-section">
+      <span class="username fw-bold">{{ username }}</span>
+      <img class="profile-pic" src="assets/joy.png" (click)="toggleProfileMenu()">
+  
+      <!-- Dropdown Menu -->
+      <div class="profile-dropdown fw-bold " *ngIf="showProfileMenu">
+        <p class="username">{{ username }}</p>
+        <hr />
+        <button routerLink="/whishlist"><i class="fa fa-heart" ></i> Wishlist</button>
+        <button routerLink="/addbag"><i class="fa fa-shopping-bag"></i> Bag</button>
+        <button><i class="fa fa-bell"></i> Notifications</button>
+        <button><i class="fa fa-box"></i> Orders</button>
+        <button (click)="logout()"><i class="fa fa-sign-out"></i> Logout</button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Filter Popup -->
+<app-filter-popup 
+*ngIf="showFilterPopup"
+(closePopup)="closeFilterPopup()"
+(applyFilters)="applyFilter($event)">
+</app-filter-popup>
+  

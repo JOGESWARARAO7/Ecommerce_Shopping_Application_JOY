@@ -1,0 +1,139 @@
+/* General Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+
+  .username{
+    font-variant: small-caps;
+  }
+  
+  
+  
+  /* Center Navigation */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Navigation Button Active State */
+.nav-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #ffcc00; /* Highlight color */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-btn.active::after {
+  width: 100%;
+  left: 0;
+}
+  
+  /* Profile Section */
+  .profile-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+  }
+  
+  .username {
+    font-size: 14px;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Profile Dropdown */
+  .profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+  }
+  
+  .profile-dropdown button {
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .profile-dropdown button:hover {
+    background: #f0f0f0;
+  }
+  
+  
+
+
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: red;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      gap: 10px;
+    }
+  
+    .nav-btn {
+      font-size: 14px;
+    }
+  
+    .profile-pic {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .profile-dropdown {
+      top: 45px;
+      min-width: 120px;
+    }
+  }
+  

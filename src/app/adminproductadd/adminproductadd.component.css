@@ -1,0 +1,9 @@
+/* product-details.component.css */
+
+  .card {
+    border-radius: 10px;
+  }
+  .form-control, .form-select {
+    border-radius: 5px;
+  }
+  

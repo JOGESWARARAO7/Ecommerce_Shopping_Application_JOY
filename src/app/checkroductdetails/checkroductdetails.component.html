@@ -1,0 +1,42 @@
+<app-userheadder></app-userheadder>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Checkout Page</h2>
+    
+    <div class="table-responsive">
+      <table class="table table-bordered text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Product</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of selectedProducts">
+            <td>
+              <img 
+                [src]="'data:image/jpeg;base64,' + product.productimage" 
+                class="product-img"
+                alt="Product Image"
+              >
+            </td>
+            <td class="fw-bold">{{ product.brand }}</td>
+            <td class="text-primary">₹{{ product.price }}</td>
+            <td>
+              {{product.quantity}}
+            </td>
+            <td class="fw-bold text-success">₹{{ product.price * product.quantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <h4 class="fw-bold">Total: <span class="text-danger">₹{{ totalAmount }}</span></h4>
+      <button class="btn btn-success btn-lg px-4 shadow-sm">Proceed to Payment</button>
+    </div>
+  </div>
+  

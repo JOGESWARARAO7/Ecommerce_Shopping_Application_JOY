@@ -1,0 +1,106 @@
+<div class="container d-flex justify-content-center align-items-center ">
+    <div class="card p-4 shadow-lg rounded w-100" style="max-width: 600px"> 
+
+        <h2 class="text-center mb-3 fontstyle">
+             Sign Up
+        </h2>
+        <div class="text-danger ">
+            {{errormessage}}
+          </div>
+        <form #signupForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+            <div class="row">
+                <!-- Username -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label"><i class="fa-solid fa-user"></i> User Name</label>
+                    <input type="text" class="form-control" name="username" [(ngModel)]="admindetails.adminname" 
+                        required minlength="3" #username="ngModel">
+                    <div class="text-danger small" *ngIf="username.invalid && username.touched">
+                        Username must be at least 3 characters.
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label"><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="admindetails.email"
+                        required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" #email="ngModel">
+                    <div class="text-danger small" *ngIf="email.invalid && email.touched">
+                        Enter a valid email address.
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label"><i class="fa-solid fa-lock"></i> Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="admindetails.password"
+                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" #password="ngModel">
+                    <div class="text-danger small" *ngIf="password.invalid && password.touched">
+                        Must have 6+ characters, 1 uppercase, 1 lowercase, 1 number.
+                    </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label"><i class="fa-solid fa-phone"></i> Phone Number</label>
+                    <input type="number" class="form-control" name="phoneNumber" [(ngModel)]="admindetails.phoneNumber"
+                        required pattern="^[0-9]{10}$" #phoneNumber="ngModel"
+                        (ngModelChange)="admindetails.phoneNumber = +$event"
+                        >
+                    <div class="text-danger small" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                        Enter a valid 10-digit phone number.
+                    </div>
+                </div>
+
+                <!-- Pincode -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label"><i class="bi bi-pin-map"></i> Pincode</label>
+                    <input type="number" class="form-control" name="pinCode" [(ngModel)]="admindetails.pinCode"
+                        required pattern="^[0-9]{6}$" #pinCode="ngModel"
+                        (ngModelChange)="admindetails.pinCode = +$event">
+                    <div class="text-danger small" *ngIf="pinCode.invalid && pinCode.touched">
+                        Pincode must be exactly 6 digits.
+                    </div>
+                </div>
+
+                <!-- Gender -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label"><i class="fa-solid fa-mars-and-venus"></i> Gender</label>
+                    <select class="form-select" name="gender" [(ngModel)]="admindetails.gender" required #gender="ngModel">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="text-danger small" *ngIf="gender.invalid && gender.touched">
+                        Gender is required.
+                    </div>
+                </div>
+
+                <!-- Address (Full Width) -->
+                <div class="col-md-12 mb-3">
+                    <label class="form-label"><i class="fa-solid fa-location-dot"></i>Address</label>
+                    <textarea class="form-control" name="address" [(ngModel)]="admindetails.address"
+                        required #address="ngModel"></textarea>
+                    <div class="text-danger small" *ngIf="address.invalid && address.touched">
+                        Address is required.
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <!-- Signup Button -->
+            <button type="submit" class="btn btn-primary w-100 fontstyle" [disabled]="signupForm.invalid" >
+                <i class="bi bi-person-check"></i> Sign Up
+            </button>
+
+        </form>
+
+        <!-- Already have an account? -->
+        <p class="mt-3 text-center">
+            Already have an account? <a routerLink="/userloginpage" class="fontstyle"><i class="bi bi-box-arrow-in-right"></i> Login here</a>
+        </p>
+
+    </div>
+</div>

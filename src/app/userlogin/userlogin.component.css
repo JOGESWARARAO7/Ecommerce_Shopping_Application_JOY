@@ -1,0 +1,34 @@
+/* Card Styling */
+.otp-card {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Input Field Styling */
+.input-group-text {
+    background-color: #f8f9fa;
+    border-right: none;
+}
+
+/* Font Styling */
+.fontstyle {
+    font-family: 'Aclonica', sans-serif;
+}
+
+/* Responsive Button Text */
+.btn {
+    font-size: 16px;
+}
+
+/* Small Text */
+.text-danger {
+    font-size: 14px;
+}
+
+/* Smaller Links */
+.btn-link {
+    font-size: smaller;
+    text-decoration: none;
+}

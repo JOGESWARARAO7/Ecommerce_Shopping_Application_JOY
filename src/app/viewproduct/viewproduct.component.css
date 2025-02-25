@@ -1,0 +1,121 @@
+/* Thumbnail Styling */
+.thumbnail-container {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbnail-container.active {
+    border: 2px solid #007bff;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Main Image Styling */
+.main-image-container {
+    max-width: 100%;
+    height: 550px; /* Balanced height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.main-image {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Product Details Styling */
+.product-details {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-details h2 {
+    font-size: 1.9rem;
+    color: #003366; /* Dark Blue */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-details .price {
+    font-size: 1.5rem;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.product-details .product-info {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.product-details .availability {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.product-details .text-success {
+    color: #28a745 !important;
+}
+
+.product-details .text-danger {
+    color: #dc3545 !important;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions button {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Adjust Thumbnail Div Height to Match Main Image */
+.col-md-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 450px; /* Matches main image height */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .main-image-container {
+        height: 300px;
+    }
+
+    .col-md-2 {
+        height: 300px;
+    }
+
+    .thumbnail {
+        max-height: 60px;
+    }
+
+    .product-details {
+        text-align: center;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+}

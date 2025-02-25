@@ -1,0 +1,40 @@
+<app-userheadder></app-userheadder>
+
+
+<div class="container mt-4">
+  
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of productdto">
+      <div class="card p-3">
+        <div class="card-body text-center">
+          <input type="checkbox" (change)="toggleSelection(product)">
+          <img [src]="'data:image/jpeg;base64,' + product.productimage" class="product-img mb-2" alt="Product Image" width="150" height="150">
+          <h5>{{ product.brand }}</h5>
+          <h5>{{ product.price }}</h5>
+          <p>Price: ₹{{ product.price * product.quantity }}</p>
+
+          <div class="quantity-control d-flex justify-content-center align-items-center">
+            <button class="btn btn-sm btn-outline-secondary" (click)="decrementQuantity(product)">-</button>
+            <span class="mx-2">{{ product.quantity }}</span>
+            <button class="btn btn-sm btn-outline-secondary" (click)="incrementQuantity(product)">+</button>
+          </div>
+
+          <!-- Button container with justify-content-between -->
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-primary" [routerLink]="['/viewproduct', product.productid]" *ngIf="product.productid">View</button>
+            <button class="btn btn-danger" (click)="product.productid ? removeproduct(product.productid) : null">Remove</button>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Green Button to Show Total Price & Navigate -->
+ <div *ngIf="selectedProducts.length > 0" class="fixed-bottom p-3 text-center">
+  <button class="btn btn-success" (click)="navigateToCheckout()">
+    Check Product (₹{{ getTotalAmount() }})
+  </button>
+</div>
+ 
+</div>

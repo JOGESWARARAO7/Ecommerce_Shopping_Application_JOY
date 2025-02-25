@@ -1,0 +1,73 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg rounded otp-card">
+      <h2 class="text-center mb-3 fontstyle">
+        <i class="bi bi-person-circle"></i><span>Admin</span> Login
+      </h2>
+  
+      <!-- Error Message -->
+      <div *ngIf="errormessage" class="alert alert-danger py-2 text-center">
+        <i class="bi bi-exclamation-triangle-fill"></i> {{errormessage}}
+      </div>
+  
+      <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
+        <!-- Email (Username) -->
+        <div class="mb-3">
+          <label for="username" class="form-label">Email</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+            <input 
+              type="email" 
+              id="username" 
+              class="form-control" 
+              placeholder="Enter email" 
+              name="username"
+              [(ngModel)]="email"
+              required
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            />
+          </div>
+          <small class="text-danger" *ngIf="email && !emailPattern.test(email)">
+            <i class="bi bi-exclamation-circle"></i> Please enter a valid email address.
+          </small>
+        </div>
+  
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+            <input 
+              type="password" 
+              id="password" 
+              class="form-control" 
+              placeholder="Enter password" 
+              name="password"
+              [(ngModel)]="password"
+              required
+            />
+          </div>
+          <small class="text-danger" *ngIf="password && !passwordPattern.test(password)">
+            <i class="bi bi-exclamation-circle"></i> Password must have at least 6 characters, one uppercase, one lowercase, and one number.
+          </small>
+        </div>
+  
+        <!-- Login Button -->
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary fontstyle" [disabled]="isLoginDisabled">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </button>
+        </div>
+      </form>
+  
+      <!-- Extra Options -->
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-link p-0 fontstyle" routerLink="/adminforgetpassword">
+          <i class="bi bi-question-circle"></i> Forgot Password?
+        </button>
+        <button class="btn btn-link p-0 fontstyle" routerLink="/adminsignuppage">
+          <i class="bi bi-person-plus-fill"></i> Sign Up
+        </button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,60 @@
+/* Full-screen container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 80px;
+    font-family: 'Aclonica', sans-serif;
+    font-weight: bold;
+    
+}
+
+/* Styling letters */
+.letter {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    margin: 10px;
+    color: black;
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+/* Delayed animation */
+.j {
+    animation-delay: 0.5s;
+}
+
+.o {
+    animation-delay: 1s;
+    color: yellow;
+   
+}
+
+.y {
+    animation-delay: 1.5s;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .container {
+        font-size: 50px;
+        flex-direction: row;
+    }
+}
+
+a{
+    text-decoration: none;
+}
